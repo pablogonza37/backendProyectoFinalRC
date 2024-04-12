@@ -32,3 +32,36 @@ export const crearUsuario = async (req, res) => {
       });
     }
   };
+
+  export const login = async (req, res) => {
+    try {
+      const { email, password } = req.body;
+      const usuarioBuscado = await Usuario.findOne({ email });
+      if (!usuarioBuscado) {
+        return res.status(400).json({
+          mensaje: "Correo o password incorrecto - correo",
+        });
+      }
+
+      const passwordValido = bcrypt.compareSync(
+        password,
+        usuarioBuscado.password
+      );
+      if (!passwordValido) {
+        return res.status(400).json({
+          mensaje: "Correo o password incorrecto - password",
+        });
+      }
+      const token = await generarJWT(usuarioBuscado._id, usuarioBuscado.email);
+      res.status(200).json({
+        mensaje: "Los datos del usuario son correctos",
+        email: email,
+        token,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({
+        mensaje: "Error al intentar loguear un usuario.",
+      });
+    }
+  };
