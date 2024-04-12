@@ -34,3 +34,24 @@ export const crearPedido = async (req, res) => {
       })
     }
   };
+
+  export const borrarPedido = async (req, res) => {
+    try {
+      const pedidoBuscado = await Pedido.findById(req.params.id);
+      if (!pedidoBuscado) {
+        return res
+          .status(404)
+          .json({
+            mensaje: "No se pudo eliminar el pedido, el id es incorrecto.",
+          });
+      }
+      await Pedido.findByIdAndDelete(req.params.id);
+  
+      res.status(200).json({ mensaje: "El pedido fue eliminado correctamente" });
+    } catch (error) {
+      console.error(error);
+      res
+        .status(500)
+        .json({ mensaje: "Ocurrio un error al intentar borrar el pedido" });
+    }
+  };
