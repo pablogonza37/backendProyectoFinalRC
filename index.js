@@ -26,4 +26,4 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 app.use("/api", productosRouter);
 app.use("/api", pedidosRouter);
-app.use('/api/usuario', usuarioRouter)
+app.use('/api', usuarioRouter)

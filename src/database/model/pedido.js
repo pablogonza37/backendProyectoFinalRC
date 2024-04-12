@@ -24,22 +24,13 @@ const pedidoSchema = new Schema({
             message: props => `${props.value} no es una URL de imagen valida.`
         }
     },
-    descripcionBreve: {
-        type: String,
-        required:true,
-        minLength:5,
-        maxLength:50
-    },
-    descripcionAmplia: {
-        type: String,
-        required:true,
-        minLength:50,
-        maxLength:500
-    },
-    categoria:{
+    estado:{
         type:String,
         required: true,
-        enum: ['Hamburguesas','Pastas', 'Postres', 'Carne asada', 'Milanesas']
+    },
+    fecha:{
+        type:String,
+        required: true,
     }
 })
 

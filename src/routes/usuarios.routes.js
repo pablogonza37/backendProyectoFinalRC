@@ -11,8 +11,8 @@ import {
 
 const router = Router();
 
-router.route("/registrar").post(crearUsuario).get(listarUsuarios);
-router.route("/administrar/:id").get(obtenerUsuario).delete(borrarUsuario);
+router.route("/usuarios").post(crearUsuario).get(listarUsuarios);
+router.route("/usuarios/:id").get(obtenerUsuario).delete(borrarUsuario);
 router.route('/suspender/:id').put(suspenderUsuario);
 router.route('/levantar-suspension/:id').put(levantarSuspensionUsuario);
 router.route("/").post(login);
