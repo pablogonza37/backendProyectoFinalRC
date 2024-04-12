@@ -57,6 +57,54 @@ export const crearUsuario = async (req, res) => {
     }
   };
 
+  export const borrarUsuario = async (req, res) => {
+    try {
+      const usuarioBuscado = await Usuario.findById(req.params.id);
+      if (!usuarioBuscado) {
+        return res.status(404).json({
+          mensaje: "No se pudo eliminar el usuario, el id es incorrecto",
+        });
+      }
+      await Usuario.findByIdAndDelete(req.params.id);
+      res.status(200).json({ mensaje: "El usuario fue eliminado correctamente" });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({
+        mensaje: "ocurrio un error al intentar eliminar el usuario",
+      });
+    }
+  };
+
+
+  export const suspenderUsuario = async (req, res) => {
+    try {
+      const usuario = await Usuario.findById(req.params.id);
+      if (!usuario) {
+        return res.status(404).json({ mensaje: 'Usuario no encontrado' });
+      }
+      usuario.suspendido = true;
+      await usuario.save();
+      res.status(200).json({ mensaje: 'Usuario suspendido correctamente' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ mensaje: 'Error al suspender usuario' });
+    }
+  };
+
+  export const levantarSuspensionUsuario = async (req, res) => {
+    try {
+      const usuario = await Usuario.findById(req.params.id);
+      if (!usuario) {
+        return res.status(404).json({ mensaje: 'Usuario no encontrado' });
+      }
+      usuario.suspendido = false;
+      await usuario.save();
+      res.status(200).json({ mensaje: 'Suspensión del usuario levantada correctamente' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ mensaje: 'Error al levantar suspensión del usuario' });
+    }
+  };
 
   export const login = async (req, res) => {
     try {
