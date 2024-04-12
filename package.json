@@ -1,0 +1,12 @@
+{
+  "name": "backendproyectofinalrc",
+  "version": "1.0.0",
+  "description": "backend proyecto final rolling code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Grupo 3",
+  "license": "ISC"
+}
