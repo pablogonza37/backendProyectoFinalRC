@@ -128,9 +128,11 @@ export const crearUsuario = async (req, res) => {
       }
       const token = await generarJWT(usuarioBuscado._id, usuarioBuscado.email);
       res.status(200).json({
-        mensaje: "Los datos del usuario son correctos",
-        email: email,
-        token,
+        mensaje: "Inicio de sesión exitoso",
+        email: usuarioBuscado.email,
+        token: token,
+        rol: usuarioBuscado.rol,
+        suspendido: usuarioBuscado.suspendido
       });
     } catch (error) {
       console.error(error);
