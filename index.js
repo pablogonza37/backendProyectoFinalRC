@@ -12,9 +12,7 @@ import usuarioRouter from './src/routes/usuarios.routes.js';
 const app = express();
 app.set("port", process.env.PORT || 4000);
 
-app.listen(app.get("port"), () => {
-  console.log("Estoy en el puerto " + app.get("port"));
-});
+app.listen(app.get("port"));
 
 app.use(cors());
 app.use(morgan("dev"));
@@ -26,4 +24,4 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 app.use("/api", productosRouter);
 app.use("/api", pedidosRouter);
-app.use('/api/usuario', usuarioRouter)
+app.use('/api', usuarioRouter)

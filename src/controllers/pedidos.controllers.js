@@ -55,3 +55,27 @@ export const crearPedido = async (req, res) => {
         .json({ mensaje: "Ocurrio un error al intentar borrar el pedido" });
     }
   };
+
+  export const cambiarEstadoPedido = async (req, res) => {
+    try {
+      const pedidoActualizado = await Pedido.findByIdAndUpdate(
+        req.params.id,
+        { estado: "realizado" },
+        { new: true }
+      );
+      if (!pedidoActualizado) {
+        return res.status(404).json({
+          mensaje: "No se encontró el pedido para actualizar su estado",
+        });
+      }
+      res.status(200).json({
+        mensaje: "El estado del pedido fue actualizado correctamente",
+        pedido: pedidoActualizado,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({
+        mensaje: "Ocurrió un error al intentar actualizar el estado del pedido"
+      });
+    }
+  };
