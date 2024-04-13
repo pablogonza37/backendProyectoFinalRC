@@ -4,7 +4,6 @@ const pedidoSchema = new Schema({
     nombreProducto:{
         type: String,
         required: true,
-        unique: true,
         minLength:2,
         maxLength:50
     },
