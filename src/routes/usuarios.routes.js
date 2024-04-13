@@ -16,6 +16,6 @@ router.route("/usuarios").post([validacionesUsuario], crearUsuario).get(listarUs
 router.route("/usuarios/:id").get(obtenerUsuario).delete(borrarUsuario);
 router.route('/suspender/:id').put(suspenderUsuario);
 router.route('/levantar-suspension/:id').put(levantarSuspensionUsuario);
-router.route("/").post(login);
+router.route("/login").post(login);
 
 export default router;
