@@ -29,9 +29,9 @@ const validacionesProducto = [
   check("categoria")
     .notEmpty()
     .withMessage("La categoria es un dato obligatorio")
-    .isIn(["Hamburguesas","Pastas", "Postres", "Carne asada", "Milanesas"])
+    .isIn(["Hamburguesas","Pastas", "Postres", "Carne asada", "Milanesas", "Pizzas", "Empanadas"])
     .withMessage(
-      "La categoria debe ser una de las siguientes opciones: 'Hamburguesas','Pastas', 'Postres', 'Carne asada', 'Milanesas' "
+      "La categoria debe ser una de las siguientes opciones: 'Hamburguesas','Pastas', 'Postres', 'Carne asada', 'Milanesas', 'Pizzas', 'Empanadas'"
     ),
     check("descripcionBreve")
     .notEmpty()
