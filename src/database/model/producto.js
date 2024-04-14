@@ -39,7 +39,7 @@ const productoSchema = new Schema({
     categoria:{
         type:String,
         required: true,
-        enum: ['Hamburguesas','Pastas', 'Postres', 'Carne asada', 'Milanesas']
+        enum: ['Hamburguesas','Pastas', 'Postres', 'Carne asada', 'Milanesas', 'Pizzas', 'Empanadas']
     }
 })
 
