@@ -26,12 +26,10 @@ const validacionesPedido = [
     .withMessage(
       "La imagen debe tener un formato de URL valida y terminar en jpg|jpeg|gif|png"
     ),
-  check("estado")
-    .notEmpty()
-    .withMessage("el estado es un dato obligatorio"),
-    check("fecha")
-    .notEmpty()
-    .withMessage("La fecha es un dato obligatorio"),
+  check("estado").notEmpty().withMessage("el estado es un dato obligatorio"),
+  check("fecha").notEmpty().withMessage("La fecha es un dato obligatorio"),
+  check("usuario").notEmpty().withMessage("El usuario es un dato obligatorio"),
+
   (req, res, next) => {
     resultadoValidacion(req, res, next);
   },
