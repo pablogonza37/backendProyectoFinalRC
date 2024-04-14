@@ -30,6 +30,10 @@ const pedidoSchema = new Schema({
     fecha:{
         type:String,
         required: true,
+    },
+    usuario:{
+        type:String,
+        required: true,
     }
 })
 
