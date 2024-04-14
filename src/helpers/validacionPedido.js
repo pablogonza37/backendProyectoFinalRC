@@ -32,6 +32,9 @@ const validacionesPedido = [
     check("fecha")
     .notEmpty()
     .withMessage("La fecha es un dato obligatorio"),
+    check("usuario")
+    .notEmpty()
+    .withMessage("El usuario es un dato obligatorio"),
   (req, res, next) => {
     resultadoValidacion(req, res, next);
   },
