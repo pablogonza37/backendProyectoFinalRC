@@ -24,15 +24,20 @@ const validacionesPedido = [
     .withMessage("La imagen es un dato obligatorio")
     .matches(/^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png)$/)
     .withMessage(
-      "La imagen debe tener un formato de URL valida y terminar en jpg|jpeg|gif|png"
+      "La imagen debe tener un formato de URL válida y terminar en jpg|jpeg|gif|png"
     ),
   check("estado")
     .notEmpty()
-    .withMessage("el estado es un dato obligatorio"),
-    check("fecha")
+    .withMessage("El estado es un dato obligatorio")
+    .isIn(["pendiente", "realizado"])
+    .withMessage("El estado debe ser 'pendiente', 'en proceso' o 'enviado'"),
+  check("fecha")
     .notEmpty()
     .withMessage("La fecha es un dato obligatorio"),
-    check("usuario")
+  check("usuario")
+    .notEmpty()
+    .withMessage("El usuario es un dato obligatorio"),
+    check("cantidad")
     .notEmpty()
     .withMessage("El usuario es un dato obligatorio"),
   (req, res, next) => {
