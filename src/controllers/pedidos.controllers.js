@@ -80,7 +80,7 @@ export const crearPedido = async (req, res) => {
     }
   };
 
-  export const cambiarCantidadPedido = async (req, res) => {
+  export const cambiarPedido = async (req, res) => {
     try {
       const buscarPedido = await Pedido.findById(req.params.id);
       if (!buscarPedido) {

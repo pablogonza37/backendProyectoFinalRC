@@ -26,7 +26,7 @@ const pedidoSchema = new Schema({
     estado: {
         type: String,
         required: true,
-        enum: ["pendiente", "realizado"]
+        enum: ["pendiente", "realizado", "en proceso"]
     },
     fecha: {
         type: String,
@@ -40,6 +40,18 @@ const pedidoSchema = new Schema({
         type: Number,
         required: true
     },
+    precioTotal:{
+        type: Number,
+        required: true,
+        min: 50,
+        max: 2000000
+    },
+    direccion: {
+        type: String,
+        required: true,
+        minLength: 2,
+        maxLength: 200
+    }
 });
 
 const Pedido = mongoose.model('pedido', pedidoSchema);
