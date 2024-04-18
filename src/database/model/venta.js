@@ -23,12 +23,6 @@ const ventaSchema = new Schema({
         type: Number,
         required: true,
         min: 50,
-    },
-    direccion: {
-        type: String,
-        required: true,
-        minLength: 2,
-        maxLength: 200
     }
 });
 
