@@ -26,7 +26,7 @@ const pedidoSchema = new Schema({
     estado: {
         type: String,
         required: true,
-        enum: ["pendiente", "realizado", "en proceso"]
+        enum: ["pendiente", "enviado", "en proceso"]
     },
     fecha: {
         type: String,
@@ -44,7 +44,6 @@ const pedidoSchema = new Schema({
         type: Number,
         required: true,
         min: 50,
-        max: 2000000
     },
     direccion: {
         type: String,
