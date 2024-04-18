@@ -29,7 +29,7 @@ const validacionesPedido = [
   check("estado")
     .notEmpty()
     .withMessage("El estado es un dato obligatorio")
-    .isIn(["pendiente", "realizado"])
+    .isIn(["pendiente", "enviado", "en proceso"])
     .withMessage("El estado debe ser 'pendiente', 'en proceso' o 'enviado'"),
   check("fecha")
     .notEmpty()
