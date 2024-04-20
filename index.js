@@ -9,6 +9,7 @@ import productosRouter from "./src/routes/productos.routes.js";
 import pedidosRouter from "./src/routes/pedidos.routes.js";
 import usuarioRouter from "./src/routes/usuarios.routes.js";
 import ventaRouter from "./src/routes/ventas.routes.js";
+import reseniaRouter from "./src/routes/resenias.routes.js";
 
 const app = express();
 app.set("port", process.env.PORT || 4000);
@@ -27,3 +28,4 @@ app.use("/api", productosRouter);
 app.use("/api", pedidosRouter);
 app.use("/api", usuarioRouter);
 app.use("/api", ventaRouter);
+app.use("/api", reseniaRouter);

@@ -18,7 +18,9 @@ const reseniaSchema = new mongoose.Schema({
     required: true,
     min: 1,
     max: 5,
-  },
+  }
 });
 
-export const Resenia = mongoose.model("resenia", reseniaSchema);
+const Resenia = mongoose.model("resenia", reseniaSchema);
+
+export default Resenia;
