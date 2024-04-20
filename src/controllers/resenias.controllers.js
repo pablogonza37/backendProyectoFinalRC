@@ -10,7 +10,6 @@ export const listarResenias = async(req, res) => {
     }
   };
 
-
 export const crearResenia = async (req, res) => {
     try {
       const nuevaResenia = new Resenia(req.body);
